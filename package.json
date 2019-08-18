@@ -1,0 +1,23 @@
+{
+  "name": "geo-explorer",
+  "version": "1.0.0",
+  "description": "FE for a map service based on geolocalisation",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Theu/geo-explorer.git"
+  },
+  "author": "Matteo Contini",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Theu/geo-explorer/issues"
+  },
+  "homepage": "https://github.com/Theu/geo-explorer#readme",
+  "devDependencies": {
+    "webpack": "^4.39.2",
+    "webpack-cli": "^3.3.7"
+  }
+}
