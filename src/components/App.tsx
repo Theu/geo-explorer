@@ -1,10 +1,17 @@
 import * as React from 'react';
+import Hello from './Hello';
+import { HelloProps } from './Hello';
 
-export interface HelloProps {
-    compiler: string;
-    framework: string;
-}
 
-export const Hello = (props: HelloProps) => <h1>Hello from {props.compiler} and {props.framework}</h1>;
+export const App: React.FunctionComponent<HelloProps> = (props) => 
+{
+    
+    const { compiler, framework } = props;
+    return (
+        <Hello
+            compiler={compiler} 
+            framework={framework}    
+        />
+)};
 
-export default Hello;
+export default App;

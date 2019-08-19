@@ -5,7 +5,7 @@ import App from './components/App';
 
 ReactDOM.render(
     <App
-        compiler='Typescript'
+        compiler='Typescriptfff'
         framework='React'
     />,
     document.getElementById('root')
