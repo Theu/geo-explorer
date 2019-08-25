@@ -1,14 +1,14 @@
 import * as React from 'react';
-import Hello from './Hello';
-import { HelloProps } from './Hello';
+import MapHolder from './MapHolder';
+import { MapHolderProps } from './MapHolder';
 
 
-export const App: React.FunctionComponent<HelloProps> = (props) => 
+export const App: React.FunctionComponent<MapHolderProps> = (props) => 
 {
     
     const { compiler, framework } = props;
     return (
-        <Hello
+        <MapHolder
             compiler={compiler} 
             framework={framework}    
         />

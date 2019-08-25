@@ -1,7 +1,7 @@
 import * as React from 'react';
 import styled from 'styled-components';
 
-export interface HelloProps {
+export interface MapHolderProps {
     compiler: string;
     framework: string;
 }
@@ -11,7 +11,7 @@ const Wrapper = styled.div`
 `;
 
 
-export const Hello: React.FC<HelloProps> = (props) => {
+export const MapHolder: React.FC<MapHolderProps> = (props) => {
     // const { compiler, framework } = props;
     const compiler = 'typescript';
     const framework = 'React';
@@ -22,4 +22,4 @@ export const Hello: React.FC<HelloProps> = (props) => {
     );
 }
 
-export default Hello;
+export default MapHolder;
