@@ -10,7 +10,11 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = {
     entry: './src/index.tsx',
     resolve: {
-        extensions: [ '.tsx', '.ts', '.js' ]
+        extensions: [ '.tsx', '.ts', '.js' ],
+        alias: {
+          Components: path.resolve(__dirname, 'src/Components'),
+          Shared: path.resolve(__dirname, 'src/Shared')
+        }
     },  
     output: {
         filename: 'bundle.js',
@@ -23,7 +27,7 @@ module.exports = {
           test: /\.tsx?$/,
           loader: 'ts-loader',
           options: {
-            getCustomTransformers: path.join(__dirname, './webpack.ts-transformers.js')
+            getCustomTransformers: path.resolve(__dirname, './webpack.ts-transformers.js')
           },
           exclude: /node_modules/
         }
