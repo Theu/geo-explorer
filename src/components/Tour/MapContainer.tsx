@@ -5,23 +5,23 @@ import styled from 'styled-components';
 import { TEMPORARY_KEY as GOOGLE_API_KEY } from 'Shared/constants';
 
 type MapContainerProps = {
-  map?: object
+  map?: any
 };
 
 const WrapperMap = styled.div`
+    width: 600px;
+    height: 600px;
+    overflow: visible;
     border:1px solid black;
-    height: 20px;
 `;
 
 
 export class MapContainer extends React.PureComponent<MapContainerProps> {
-    // private map = React.createRef<HTMLDivElement>()
-    // private current = true
-    // get myValue (): boolean { return this.current }
     
     state = {
       mapIsReady: false
     }
+    map: google.maps.Map;
 
     componentDidMount() {
       const script = document.createElement('script');
@@ -40,8 +40,11 @@ export class MapContainer extends React.PureComponent<MapContainerProps> {
         this.map = new google.maps.Map(
           document.getElementById("map"),
           {
-            center: {lat: -34.397, lng: 150.644},
-            zoom: 12,
+            center: {
+              lat: 52.4919697, 
+              lng: 13.4682996
+            },
+            zoom: 18,
             // mapTypeId: 'roadmap',
           }
         )
@@ -54,13 +57,11 @@ export class MapContainer extends React.PureComponent<MapContainerProps> {
     
     render() {
         return (
-            <div>
-                <WrapperMap>
-                    <div id="map" onClick={this.handleClick}>
-                        coraggio
-                    </div>
-                </WrapperMap>
-            </div>
+            
+            <WrapperMap id="map" onClick={this.handleClick}>
+                coraggio
+            </WrapperMap>
+            
         );
     }
 };
