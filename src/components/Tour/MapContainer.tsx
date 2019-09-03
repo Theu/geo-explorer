@@ -1,12 +1,18 @@
-import * as React from 'react';
-// import 'rxjs/add/operator/map';
+import React, { PureComponent } from 'react';
 import styled from 'styled-components';
 
 import { TEMPORARY_KEY as GOOGLE_API_KEY } from 'Shared/constants';
+import { scriptGenerator } from 'Shared/scriptGenerator';
 
-type MapContainerProps = {
-  map?: any
+interface MapContainerProps {
+  map?: Object
+  scriptGenerator?(): void
 };
+
+type MapContainerState = {
+  mapIsReady: boolean
+}
+
 
 const WrapperMap = styled.div`
     width: 600px;
@@ -15,15 +21,15 @@ const WrapperMap = styled.div`
     border:1px solid black;
 `;
 
-
-export class MapContainer extends React.PureComponent<MapContainerProps> {
+export class MapContainer extends PureComponent<MapContainerProps, MapContainerState> {
+    
+    
     
     state = {
       mapIsReady: false
     }
     map: google.maps.Map;
-
-    componentDidMount() {
+    scriptGenerator = () => {
       const script = document.createElement('script');
       script.src = `https://maps.googleapis.com/maps/api/js?key=${GOOGLE_API_KEY}`;
       script.async = true;
@@ -31,8 +37,13 @@ export class MapContainer extends React.PureComponent<MapContainerProps> {
       script.addEventListener('load', () => {
         this.setState({ mapIsReady: true });
       });
-
+  
       document.body.appendChild(script);
+
+    }
+  
+    componentDidMount() {
+      this.scriptGenerator();
     }
 
     componentDidUpdate() {
@@ -56,6 +67,8 @@ export class MapContainer extends React.PureComponent<MapContainerProps> {
     }
     
     render() {
+
+      // console.log('>>>>', this.scriptGenerator())
         return (
             
             <WrapperMap id="map" onClick={this.handleClick}>
