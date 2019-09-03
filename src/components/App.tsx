@@ -1,17 +1,8 @@
 import * as React from 'react';
-import Hello from './Hello';
-import { HelloProps } from './Hello';
+import Tour from 'Components/Tour/Tour';
 
-
-export const App: React.FunctionComponent<HelloProps> = (props) => 
-{
-    
-    const { compiler, framework } = props;
-    return (
-        <Hello
-            compiler={compiler} 
-            framework={framework}    
-        />
-)};
+export const App: React.FunctionComponent = (props) => (
+    <Tour />
+);
 
 export default App;
